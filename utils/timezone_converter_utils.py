@@ -1,4 +1,3 @@
-
 def convert_timestamp_with_coordinates(lat, lng, timestamp):
     """
     default regard timestamp as UTC timezone and convert it to its local timezone which get from coords (lat and lng)
