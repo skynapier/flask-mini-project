@@ -6,13 +6,13 @@ class MyTestCase(unittest.TestCase):
     def test_basecase(self):
         lat, lng = -33.865143, 151.209900
         timestamp = 1480933800
-        from utils.timezone_converter_utils import convert_timestamp_with_coordinates
+        from Utils.timezone_converter_utils import convert_timestamp_with_coordinates
         time = convert_timestamp_with_coordinates(lat, lng, timestamp)
 
         self.assertEqual(time, '05/12/2016 21:30 AEDT +1100')
 
     def test_whole_csv_file_cases(self):
-        from utils.csv_file_parser import load_csv_to_df,add_converted_column_on_df
+        from Utils.csv_file_parser import load_csv_to_df,add_converted_column_on_df
 
         df = load_csv_to_df()
         add_converted_column_on_df(df)

@@ -1,7 +1,7 @@
 import unittest
 import json
 import os
-from utils.csv_file_parser import load_csv_to_df
+from Utils.csv_file_parser import load_csv_to_df
 from startup import create_app
 
 

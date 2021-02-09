@@ -1,7 +1,7 @@
 from . import api
 from flask import make_response, request,jsonify
-from utils.timezone_converter_utils import convert_timestamp_with_coordinates
-from utils.csv_file_parser import retrieve_converted_time_by_id, retrieve_all_converted_time,\
+from Utils.timezone_converter_utils import convert_timestamp_with_coordinates
+from Utils.csv_file_parser import retrieve_converted_time_by_id, retrieve_all_converted_time,\
     add_collection_by_id, update_all_column_by_id,delete_collection_by_id
 
 @api.route("/time-converter", methods=["GET"])

@@ -3,7 +3,7 @@ import websockets
 import re
 import time
 
-from utils.distance_measurement_util import haversine_formula
+from Utils.distance_measurement_util import haversine_formula
 
 
 client_list = {}
@@ -48,6 +48,6 @@ async def distance_measurement(websocket, path):
 
 if __name__ == '__main__':
 
-    start_server = websockets.serve(distance_measurement, "127.0.0.1", 5002)
+    start_server = websockets.serve(distance_measurement, "0.0.0.0", 5002)
     asyncio.get_event_loop().run_until_complete(start_server)
     asyncio.get_event_loop().run_forever()

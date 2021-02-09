@@ -2,7 +2,7 @@ import asyncio
 import websockets
 import re
 
-from utils.timezone_converter_utils import convert_timestamp_with_coordinates
+from Utils.timezone_converter_utils import convert_timestamp_with_coordinates
 
 
 
@@ -24,6 +24,6 @@ async def live_measurement(websocket, path):
 
 if __name__ == '__main__':
 
-    start_server = websockets.serve(live_measurement, "127.0.0.1", 5001)
+    start_server = websockets.serve(live_measurement, "0.0.0.0", 5001)
     asyncio.get_event_loop().run_until_complete(start_server)
     asyncio.get_event_loop().run_forever()

@@ -12,7 +12,8 @@ mini-project <br />
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── test_timezone_converter.py <br />
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── test_websocket_distance_measurement.py <br />
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── test_websocket_live_measurementr.py <br />
-├── utils <br />
+├── Utils <br />
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── __init__.py <br />
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── csv_file_parser.py <br />
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── distance_measurement.py <br />
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── timezone_converter_utils.py <br />
@@ -22,23 +23,10 @@ mini-project <br />
 ├── app.py <br />
 ├── config.py <br />
 ├── Dockerfile <br />
+├── parsing_csv_program.py <br />
 └── startup.py <br />
 
 ## How to run program?
-## From Docker Image
-### Get Image from "docker pull skynapier/mini-project:1.0"
-#### task 1 time converter
-docker run --name mini-project -d -p 5000:5000 skynapier/mini-project:1.0 ./app.py
-
-#### task 2 restful api
-docker run --name mini-project -d -p 5000:5000 skynapier/mini-project:1.0 ./app.py
-
-#### task 3 websocket live measurement
-
-
-#### task 4 websocket distance measurement
-
-
 ## From local environment
 #### task 1 time converter
 run python ./parsing_csv_program <br/>
@@ -75,8 +63,31 @@ return: <br/>
 it will count distance between 2rd and 3nd times send data, 3nd time send same data the distance should be 0. 1st and 4th data are the first record in the system, thus do not count the distance.
 ![](Sample_output_images/websocket_distance_measurement.png)
 
+## From Docker Image
+### Get Image from "docker pull skynapier/mini-project:1.0"
+#### task 1 time converter
+Either:  volume where you save timezone.csv then output with same folder<br/>
+docker run --rm --name mini-project-time-converter -v \where you save csv file\:\mini-project\Input_csv_files skynapier/mini-project:1.0 parsing_csv_program.py
+
+OR: <br/>
+docker run --rm --name mini-project-time-converter skynapier/mini-project:1.0 parsing_csv_program.py <br/>
+and<br/>
+docker cp <contianer id>:Input_csv_file \where in your host to save\ 
+
+#### task 2 restful api
+docker run --name mini-project-restful-api -d -p 5000:5000 skynapier/mini-project:1.0 app.py <br/>
+
+then test with postman or someothers.
+
+#### task 3 websocket live measurement
+docker run --name mini-project-websocket-live-measurement -d -p 5001:5001 skynapier/mini-project:1.0 live_measurements_websocket.py
+
+#### task 4 websocket distance measurement
+docker run --name mini-project-websocket-distance-measurement -d -p 5002:5002 skynapier/mini-project:1.0 distance_measurements_websocket.py
+
+
 ## docker building command
-docker build -t mini_project .
+docker build -t skynapier/mini-project:tag .
 
 ## Restful API
 ### GET all
