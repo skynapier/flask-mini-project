@@ -3,17 +3,21 @@ import os
 from utils.timezone_converter_utils import convert_timestamp_with_coordinates
 
 # hyper parameter could use config.ini file in further
-original_csv_file_dir = './Input_csv_files/timezone.csv'
+if os.path.isfile('./Input_csv_files/timezone.csv'):
+    original_csv_file_dir = './Input_csv_files/timezone.csv'
+    modified_csv_file_dir = './Input_csv_files/timezone_modified.csv'
+else:
+    original_csv_file_dir = '../Input_csv_files/timezone.csv'
+    modified_csv_file_dir = '../Input_csv_files/timezone_modified.csv'
 
-modified_csv_file_dir = './Input_csv_files/timezone_modified.csv'
 
 
-def load_csv_to_df():
+def load_csv_to_df(csv_file=original_csv_file_dir):
 
     if os.path.isfile(modified_csv_file_dir):
         df =  pd.read_csv(modified_csv_file_dir)
     else:
-        df = pd.read_csv(original_csv_file_dir)
+        df = pd.read_csv(csv_file)
     return df
 
 def add_converted_column_on_df(target_df, col_name='local_time' ):
@@ -50,6 +54,7 @@ def add_collection_by_id(id, row):
         df = pd.concat([df, new_row_df])
         output_df_to_csv(df)
     else:
+        output_df_to_csv(df)
         return {}
 
     target_df = add_converted_column_on_df(df)
@@ -88,5 +93,6 @@ def delete_collection_by_id(id):
         
         return True
 
+    output_df_to_csv(df)
     return False
 

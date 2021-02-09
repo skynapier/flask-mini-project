@@ -2,8 +2,8 @@ import asyncio
 import websockets
 
 async def hello():
-    uri = "ws://127.0.0.1:5001"
-    async with websockets.connect(uri) as websocket:
+    url = "ws://127.0.0.1:5001"
+    async with websockets.connect(url) as websocket:
 
         lat, lng = -33.865143, 151.209900
         timestamp = 1480933800

@@ -41,7 +41,7 @@ async def distance_measurement(websocket, path):
 
         distance = haversine_formula(lat1,lng1,lat2,lng2)
 
-        greeting = f"Hello {name}, your current travel distance between last time record is {distance} !"
+        greeting = f"Hello {name}, your current travel distance between last time record is {distance} km!"
         await websocket.send(greeting)
         print(f"> {greeting}")
 
