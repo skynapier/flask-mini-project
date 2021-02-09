@@ -3,9 +3,9 @@ import os
 from Utils.timezone_converter_utils import convert_timestamp_with_coordinates
 
 # hyper parameter could use config.ini file in further
-if os.path.isfile('../../Input_csv_files/timezone.csv'):
-    original_csv_file_dir = '../../Input_csv_files/timezone.csv'
-    modified_csv_file_dir = '../../Input_csv_files/timezone_modified.csv'
+if os.path.isfile('./Input_csv_files/timezone.csv'):
+    original_csv_file_dir = './Input_csv_files/timezone.csv'
+    modified_csv_file_dir = './Input_csv_files/timezone_modified.csv'
 else:
     original_csv_file_dir = '../Input_csv_files/timezone.csv'
     modified_csv_file_dir = '../Input_csv_files/timezone_modified.csv'
