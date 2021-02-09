@@ -1,31 +1,3 @@
-## File Structure
-mini-project <br />
-├── Controllers_1_0 <br />
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── __init__.py <br />
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── time_converter_controller.py <br />
-├── Input_csv_files <br />
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── timezone.csv <br />
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── timezone_modified.csv<br />
-├── Tests <br />
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── __init__.py <br />
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── test_restful.py <br />
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── test_timezone_converter.py <br />
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── test_websocket_distance_measurement.py <br />
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── test_websocket_live_measurementr.py <br />
-├── Utils <br />
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── __init__.py <br />
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── csv_file_parser.py <br />
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── distance_measurement.py <br />
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── timezone_converter_utils.py <br />
-├── Websocket_1_0 <br />
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── distance_measurement_websocket.py <br />
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── live_measurement_websocket.py <br />
-├── app.py <br />
-├── config.py <br />
-├── Dockerfile <br />
-├── parsing_csv_program.py <br />
-└── startup.py <br />
-
 ## How to run program?
 ## From local environment
 #### task 1 time converter
@@ -91,39 +63,67 @@ docker build -t skynapier/mini-project:tag .
 
 ## Restful API
 ### GET all
-127.0.0.1:5000/api/1.0/time-converter/all
+127.0.0.1:5000/api/1.0/time-converter/all<br/>
 ![](Sample_output_images/get_all.png)
 
 ### GET by id
-127.0.0.1:5000/api/1.0/time-converter/73k
+127.0.0.1:5000/api/1.0/time-converter/73k<br/>
 ![](Sample_output_images/get_id.png)
 
 ### POST 
 #### Post ADD id not exist
-127.0.0.1:5000/api/1.0/time-converter/add/?id=1&lat=-33.865143&lng=151.209900&timestamp=1480933800
+127.0.0.1:5000/api/1.0/time-converter/add/?id=1&lat=-33.865143&lng=151.209900&timestamp=1480933800<br/>
 ![](Sample_output_images/post_add_successful.png)
 
 #### Post ADD id exist
-127.0.0.1:5000/api/1.0/time-converter/add/?id=1&lat=-33.865143&lng=151.209900&timestamp=1480933800
+127.0.0.1:5000/api/1.0/time-converter/add/?id=1&lat=-33.865143&lng=151.209900&timestamp=1480933800<br/>
 ![](Sample_output_images/post_add_fail.png)
 
 ### PUT 
 #### PUT update with id  exist
-127.0.0.1:5000/api/1.0/time-converter/0/?lat=-33.865143&lng=151.209900&timestamp=1480933800
+127.0.0.1:5000/api/1.0/time-converter/0/?lat=-33.865143&lng=151.209900&timestamp=1480933800<br/>
 ![](Sample_output_images/put_update_successful.png)
 
 #### PUT update with id not exist
-127.0.0.1:5000/api/1.0/time-converter/99/?lat=-33.865143&lng=151.209900&timestamp=1480933800
+127.0.0.1:5000/api/1.0/time-converter/99/?lat=-33.865143&lng=151.209900&timestamp=1480933800<br/>
 ![](Sample_output_images/put_create_successful.png)
 
 ### Delete 
 
 #### Delete successful
-127.0.0.1:5000/api/1.0/time-converter/0
+127.0.0.1:5000/api/1.0/time-converter/0<br/>
 ![](Sample_output_images/delete_successful.png)
 
 #### Delete fail
-127.0.0.1:5000/api/1.0/time-converter/9527
+127.0.0.1:5000/api/1.0/time-converter/9527<br/>
 ![](Sample_output_images/delete_fail.png)
 
+
+## File Structure
+mini-project <br />
+├── Controllers_1_0 <br />
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── __init__.py <br />
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── time_converter_controller.py <br />
+├── Input_csv_files <br />
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── timezone.csv <br />
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── timezone_modified.csv<br />
+├── Tests <br />
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── __init__.py <br />
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── test_restful.py <br />
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── test_timezone_converter.py <br />
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── test_websocket_distance_measurement.py <br />
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── test_websocket_live_measurementr.py <br />
+├── Utils <br />
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── __init__.py <br />
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── csv_file_parser.py <br />
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── distance_measurement.py <br />
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── timezone_converter_utils.py <br />
+├── Websocket_1_0 <br />
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── distance_measurement_websocket.py <br />
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── live_measurement_websocket.py <br />
+├── app.py <br />
+├── config.py <br />
+├── Dockerfile <br />
+├── parsing_csv_program.py <br />
+└── startup.py <br />
 
